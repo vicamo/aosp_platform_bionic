@@ -278,6 +278,7 @@ libc_common_src_files := \
 	bionic/sched_cpucount.c \
 	bionic/semaphore.c \
 	bionic/sha1.c \
+	bionic/signalfd.cpp \
 	bionic/ssp.c \
 	bionic/stubs.c \
 	bionic/system_properties.c \
