@@ -25,11 +25,13 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
+
 #ifndef _SYS_SOCKET_H_
 #define _SYS_SOCKET_H_
 
 #include <sys/cdefs.h>
 #include <sys/types.h>
+#include <asm/fcntl.h>
 #include <linux/socket.h>
 
 __BEGIN_DECLS
@@ -47,13 +49,15 @@ __BEGIN_DECLS
 # define __socketcall extern
 #endif
 
-/* BIONIC: second argument to shutdown() */
+#define SOCK_CLOEXEC O_CLOEXEC
+#define SOCK_NONBLOCK O_NONBLOCK
+
 enum {
-    SHUT_RD = 0,        /* no more receptions */
+  SHUT_RD = 0,
 #define SHUT_RD         SHUT_RD
-    SHUT_WR,            /* no more transmissions */
+  SHUT_WR,
 #define SHUT_WR         SHUT_WR
-    SHUT_RDWR           /* no more receptions or transmissions */
+  SHUT_RDWR
 #define SHUT_RDWR       SHUT_RDWR
 };
 
